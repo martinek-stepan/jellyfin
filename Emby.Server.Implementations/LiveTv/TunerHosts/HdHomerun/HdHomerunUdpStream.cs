@@ -87,7 +87,7 @@ namespace Emby.Server.Implementations.LiveTv.TunerHosts.HdHomerun
             Logger.LogInformation("Opening HDHR UDP Live stream from {host}", uri.Host);
 
             var remoteAddress = IPAddress.Parse(uri.Host);
-            IPAddress localAddress = null;
+            IPAddress? localAddress = null;
             using (var tcpClient = new TcpClient())
             {
                 try

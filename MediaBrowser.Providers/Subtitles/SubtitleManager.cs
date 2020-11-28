@@ -216,7 +216,7 @@ namespace MediaBrowser.Providers.Subtitles
 
         private async Task TrySaveToFiles(Stream stream, List<string> savePaths)
         {
-            Exception exceptionToThrow = null;
+            Exception? exceptionToThrow = null;
 
             foreach (var savePath in savePaths)
             {

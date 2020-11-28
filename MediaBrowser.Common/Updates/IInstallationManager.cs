@@ -42,9 +42,9 @@ namespace MediaBrowser.Common.Updates
         /// <returns>All plugins matching the requirements.</returns>
         IEnumerable<PackageInfo> FilterPackages(
             IEnumerable<PackageInfo> availablePackages,
-            string name = null,
+            string? name = null,
             Guid guid = default,
-            Version specificVersion = null);
+            Version? specificVersion = null);
 
         /// <summary>
         /// Returns all compatible versions ordered from newest to oldest.
@@ -57,9 +57,9 @@ namespace MediaBrowser.Common.Updates
         /// <returns>All compatible versions ordered from newest to oldest.</returns>
         IEnumerable<InstallationInfo> GetCompatibleVersions(
             IEnumerable<PackageInfo> availablePackages,
-            string name = null,
+            string? name = null,
             Guid guid = default,
-            Version minVersion = null,
+            Version? minVersion = null,
             Version? specificVersion = null);
 
         /// <summary>

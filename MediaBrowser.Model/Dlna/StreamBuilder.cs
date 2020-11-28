@@ -355,7 +355,7 @@ namespace MediaBrowser.Model.Dlna
                 }
             }
 
-            TranscodingProfile transcodingProfile = null;
+            TranscodingProfile? transcodingProfile = null;
             foreach (var i in options.Profile.TranscodingProfiles)
             {
                 if (i.Type == playlistItem.MediaType

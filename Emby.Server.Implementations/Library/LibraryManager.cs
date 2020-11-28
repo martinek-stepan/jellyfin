@@ -533,16 +533,16 @@ namespace Emby.Server.Implementations.Library
             return key.GetMD5();
         }
 
-        public BaseItem ResolvePath(FileSystemMetadata fileInfo, Folder parent = null)
+        public BaseItem ResolvePath(FileSystemMetadata fileInfo, Folder? parent = null)
             => ResolvePath(fileInfo, new DirectoryService(_fileSystem), null, parent);
 
         private BaseItem ResolvePath(
             FileSystemMetadata fileInfo,
             IDirectoryService directoryService,
             IItemResolver[] resolvers,
-            Folder parent = null,
-            string collectionType = null,
-            LibraryOptions libraryOptions = null)
+            Folder? parent = null,
+            string? collectionType = null,
+            LibraryOptions? libraryOptions = null)
         {
             if (fileInfo == null)
             {
@@ -797,7 +797,7 @@ namespace Emby.Server.Implementations.Library
                         Directory.CreateDirectory(userRootPath);
 
                         var newItemId = GetNewItemId(userRootPath, typeof(UserRootFolder));
-                        UserRootFolder tmpItem = null;
+                        UserRootFolder? tmpItem = null;
                         try
                         {
                             tmpItem = GetItemById(newItemId) as UserRootFolder;
@@ -1664,7 +1664,7 @@ namespace Emby.Server.Implementations.Library
         /// <returns>Video.</returns>
         private Video ResolveIntro(IntroInfo info)
         {
-            Video video = null;
+            Video? video = null;
 
             if (info.ItemId.HasValue)
             {

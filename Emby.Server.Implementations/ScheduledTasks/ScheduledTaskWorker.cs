@@ -406,7 +406,7 @@ namespace Emby.Server.Implementations.ScheduledTasks
             TaskCompletionStatus status;
             CurrentExecutionStartTime = DateTime.UtcNow;
 
-            Exception failureException = null;
+            Exception? failureException = null;
 
             try
             {

@@ -327,7 +327,7 @@ namespace Emby.Server.Implementations.Library
             return sources.FirstOrDefault(i => string.Equals(i.Id, mediaSourceId, StringComparison.OrdinalIgnoreCase));
         }
 
-        public List<MediaSourceInfo> GetStaticMediaSources(BaseItem? item, bool enablePathSubstitution, User user = null)
+        public List<MediaSourceInfo> GetStaticMediaSources(BaseItem? item, bool enablePathSubstitution, User? user = null)
         {
             if (item == null)
             {
@@ -641,7 +641,7 @@ namespace Emby.Server.Implementations.Library
 
             var now = DateTime.UtcNow;
 
-            MediaInfo mediaInfo = null;
+            MediaInfo? mediaInfo = null;
             var cacheFilePath = string.IsNullOrEmpty(cacheKey) ? null : Path.Combine(_appPaths.CachePath, "mediainfo", cacheKey.GetMD5().ToString("N", CultureInfo.InvariantCulture) + ".json");
 
             if (!string.IsNullOrEmpty(cacheKey))

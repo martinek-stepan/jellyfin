@@ -639,7 +639,7 @@ namespace Emby.Server.Implementations.LiveTv.EmbyTV
 
             timer.Id = Guid.NewGuid().ToString("N", CultureInfo.InvariantCulture);
 
-            LiveTvProgram programInfo = null;
+            LiveTvProgram? programInfo = null;
 
             if (!string.IsNullOrWhiteSpace(timer.ProgramId))
             {
@@ -841,7 +841,7 @@ namespace Emby.Server.Implementations.LiveTv.EmbyTV
             return Task.FromResult(timers);
         }
 
-        public Task<SeriesTimerInfo> GetNewTimerDefaultsAsync(CancellationToken cancellationToken, ProgramInfo program = null)
+        public Task<SeriesTimerInfo> GetNewTimerDefaultsAsync(CancellationToken cancellationToken, ProgramInfo? program = null)
         {
             var config = GetConfiguration();
 
@@ -1236,7 +1236,7 @@ namespace Emby.Server.Implementations.LiveTv.EmbyTV
                 throw new ArgumentNullException(nameof(timer));
             }
 
-            LiveTvProgram programInfo = null;
+            LiveTvProgram? programInfo = null;
 
             if (!string.IsNullOrWhiteSpace(timer.ProgramId))
             {
@@ -1258,7 +1258,7 @@ namespace Emby.Server.Implementations.LiveTv.EmbyTV
             var recordPath = GetRecordingPath(timer, remoteMetadata, out string seriesPath);
             var recordingStatus = RecordingStatus.New;
 
-            string liveStreamId = null;
+            string? liveStreamId = null;
 
             var channelItem = _liveTvManager.GetLiveTvChannel(timer, this);
 
@@ -1267,7 +1267,7 @@ namespace Emby.Server.Implementations.LiveTv.EmbyTV
                 var allMediaSources = await _mediaSourceManager.GetPlaybackMediaSources(channelItem, null, true, false, CancellationToken.None).ConfigureAwait(false);
 
                 var mediaStreamInfo = allMediaSources[0];
-                IDirectStreamProvider directStreamProvider = null;
+                IDirectStreamProvider? directStreamProvider = null;
 
                 if (mediaStreamInfo.RequiresOpening)
                 {
@@ -1445,7 +1445,7 @@ namespace Emby.Server.Implementations.LiveTv.EmbyTV
 
         private BaseItem GetAffectedBaseItem(string path)
         {
-            BaseItem item = null;
+            BaseItem? item = null;
 
             var parentPath = Path.GetDirectoryName(path);
 
@@ -2455,7 +2455,7 @@ namespace Emby.Server.Implementations.LiveTv.EmbyTV
 
         private void CopyProgramInfoToTimerInfo(LiveTvProgram programInfo, TimerInfo timerInfo, Dictionary<Guid, LiveTvChannel> tempChannelCache)
         {
-            string channelId = null;
+            string? channelId = null;
 
             if (!programInfo.ChannelId.Equals(Guid.Empty))
             {

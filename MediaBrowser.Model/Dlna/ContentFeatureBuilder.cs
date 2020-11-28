@@ -22,7 +22,7 @@ namespace MediaBrowser.Model.Dlna
             int? width,
             int? height,
             bool isDirectStream,
-            string orgPn = null)
+            string? orgPn = null)
         {
             string orgOp = ";DLNA.ORG_OP=" + DlnaMaps.GetImageOrgOpValue();
 

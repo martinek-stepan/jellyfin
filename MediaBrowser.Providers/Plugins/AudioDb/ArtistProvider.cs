@@ -90,7 +90,7 @@ namespace MediaBrowser.Providers.Plugins.AudioDb
             item.SetProviderId(MetadataProvider.AudioDbArtist, result.idArtist);
             item.SetProviderId(MetadataProvider.MusicBrainzArtist, result.strMusicBrainzID);
 
-            string overview = null;
+            string? overview = null;
 
             if (string.Equals(preferredLanguage, "de", StringComparison.OrdinalIgnoreCase))
             {

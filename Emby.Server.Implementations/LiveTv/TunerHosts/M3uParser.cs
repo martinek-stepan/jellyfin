@@ -166,7 +166,7 @@ namespace Emby.Server.Implementations.LiveTv.TunerHosts
             var nameParts = extInf.Split(',', StringSplitOptions.RemoveEmptyEntries);
             var nameInExtInf = nameParts.Length > 1 ? nameParts[^1].AsSpan().Trim() : ReadOnlySpan<char>.Empty;
 
-            string numberString = null;
+            string? numberString = null;
             string attributeValue;
 
             if (attributes.TryGetValue("tvg-chno", out attributeValue))

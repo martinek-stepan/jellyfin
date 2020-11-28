@@ -365,7 +365,7 @@ namespace Emby.Server.Implementations.Session
                 {
                     var runtimeTicks = libraryItem.RunTimeTicks;
 
-                    MediaSourceInfo mediaSource = null;
+                    MediaSourceInfo? mediaSource = null;
                     if (libraryItem is IHasMediaSources)
                     {
                         mediaSource = await GetMediaSource(libraryItem, info.MediaSourceId, info.LiveStreamId).ConfigureAwait(false);
@@ -888,7 +888,7 @@ namespace Emby.Server.Implementations.Session
 
                 if (current == null || !info.ItemId.Equals(current.Id))
                 {
-                    MediaSourceInfo mediaSource = null;
+                    MediaSourceInfo? mediaSource = null;
 
                     if (libraryItem is IHasMediaSources)
                     {
@@ -1450,7 +1450,7 @@ namespace Emby.Server.Implementations.Session
         {
             CheckDisposed();
 
-            User user = null;
+            User? user = null;
             if (request.UserId != Guid.Empty)
             {
                 user = _userManager.GetUserById(request.UserId);

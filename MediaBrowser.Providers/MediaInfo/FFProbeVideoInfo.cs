@@ -78,9 +78,9 @@ namespace MediaBrowser.Providers.MediaInfo
             CancellationToken cancellationToken)
             where T : Video
         {
-            BlurayDiscInfo blurayDiscInfo = null;
+            BlurayDiscInfo? blurayDiscInfo = null;
 
-            Model.MediaInfo.MediaInfo mediaInfoResult = null;
+            Model.MediaInfo.MediaInfo? mediaInfoResult = null;
 
             if (!item.IsShortcut || options.EnableRemoteContentProbe)
             {

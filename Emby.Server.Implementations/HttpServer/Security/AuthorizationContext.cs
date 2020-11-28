@@ -59,11 +59,11 @@ namespace Emby.Server.Implementations.HttpServer.Security
             in IHeaderDictionary headers,
             in IQueryCollection queryString)
         {
-            string deviceId = null;
-            string device = null;
-            string client = null;
-            string version = null;
-            string token = null;
+            string? deviceId = null;
+            string? device = null;
+            string? client = null;
+            string? version = null;
+            string? token = null;
 
             if (auth != null)
             {

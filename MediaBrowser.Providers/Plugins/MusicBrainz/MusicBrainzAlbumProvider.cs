@@ -572,7 +572,7 @@ namespace MediaBrowser.Providers.Music
             reader.MoveToContent();
             reader.Read();
 
-            string name = null;
+            string? name = null;
 
             // http://stackoverflow.com/questions/2299632/why-does-xmlreader-skip-every-other-element-if-there-is-no-whitespace-separator
 

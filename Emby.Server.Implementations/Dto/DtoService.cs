@@ -74,7 +74,7 @@ namespace Emby.Server.Implementations.Dto
         }
 
         /// <inheritdoc />
-        public IReadOnlyList<BaseItemDto> GetBaseItemDtos(IReadOnlyList<BaseItem> items, DtoOptions options, User user = null, BaseItem owner = null)
+        public IReadOnlyList<BaseItemDto> GetBaseItemDtos(IReadOnlyList<BaseItem> items, DtoOptions options, User? user = null, BaseItem? owner = null)
         {
             var returnItems = new BaseItemDto[items.Count];
             var programTuples = new List<(BaseItem, BaseItemDto)>();
@@ -127,7 +127,7 @@ namespace Emby.Server.Implementations.Dto
             return returnItems;
         }
 
-        public BaseItemDto GetBaseItemDto(BaseItem item, DtoOptions options, User user = null, BaseItem owner = null)
+        public BaseItemDto GetBaseItemDto(BaseItem item, DtoOptions options, User? user = null, BaseItem? owner = null)
         {
             var dto = GetBaseItemDtoInternal(item, options, user, owner);
             if (item is LiveTvChannel tvChannel)
@@ -171,7 +171,7 @@ namespace Emby.Server.Implementations.Dto
                 });
         }
 
-        private BaseItemDto GetBaseItemDtoInternal(BaseItem item, DtoOptions options, User user = null, BaseItem owner = null)
+        private BaseItemDto GetBaseItemDtoInternal(BaseItem item, DtoOptions options, User? user = null, BaseItem? owner = null)
         {
             var dto = new BaseItemDto
             {
@@ -282,7 +282,7 @@ namespace Emby.Server.Implementations.Dto
                 }
 
                 var path = mediaSource.Path;
-                string fileExtensionContainer = null;
+                string? fileExtensionContainer = null;
 
                 if (!string.IsNullOrEmpty(path))
                 {
@@ -306,7 +306,7 @@ namespace Emby.Server.Implementations.Dto
             }
         }
 
-        public BaseItemDto GetItemByNameDto(BaseItem item, DtoOptions options, List<BaseItem>? taggedItems, User user = null)
+        public BaseItemDto GetItemByNameDto(BaseItem item, DtoOptions options, List<BaseItem>? taggedItems, User? user = null)
         {
             var dto = GetBaseItemDtoInternal(item, options, user);
 
@@ -318,7 +318,7 @@ namespace Emby.Server.Implementations.Dto
             return dto;
         }
 
-        private static void SetItemByNameInfo(BaseItem item, BaseItemDto dto, IList<BaseItem> taggedItems, User user = null)
+        private static void SetItemByNameInfo(BaseItem item, BaseItemDto dto, IList<BaseItem> taggedItems, User? user = null)
         {
             if (item is MusicArtist)
             {
@@ -1128,7 +1128,7 @@ namespace Emby.Server.Implementations.Dto
                 dto.SeasonId = episode.SeasonId;
                 dto.SeriesId = episode.SeriesId;
 
-                Series episodeSeries = null;
+                Series? episodeSeries = null;
 
                 // this block will add the series poster for episodes without a poster
                 // TODO maybe remove the if statement entirely
@@ -1293,7 +1293,7 @@ namespace Emby.Server.Implementations.Dto
                 return;
             }
 
-            BaseItem parent = null;
+            BaseItem? parent = null;
             var isFirst = true;
 
             var imageTags = dto.ImageTags;

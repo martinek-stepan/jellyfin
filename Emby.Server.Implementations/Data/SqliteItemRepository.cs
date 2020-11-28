@@ -928,7 +928,7 @@ namespace Emby.Server.Implementations.Data
                 saveItemStatement.TryBindNull("@ExtraType");
             }
 
-            string artists = null;
+            string? artists = null;
             if (item is IHasArtist hasArtists && hasArtists.Artists.Count > 0)
             {
                 artists = string.Join("|", hasArtists.Artists);
@@ -936,7 +936,7 @@ namespace Emby.Server.Implementations.Data
 
             saveItemStatement.TryBind("@Artists", artists);
 
-            string albumArtists = null;
+            string? albumArtists = null;
             if (item is IHasAlbumArtist hasAlbumArtists
                 && hasAlbumArtists.AlbumArtists.Count > 0)
             {
@@ -1257,7 +1257,7 @@ namespace Emby.Server.Implementations.Data
                 return null;
             }
 
-            BaseItem item = null;
+            BaseItem? item = null;
 
             if (TypeRequiresDeserialization(type))
             {
@@ -3245,7 +3245,7 @@ namespace Emby.Server.Implementations.Data
                     foreach (var row in statement.ExecuteQuery())
                     {
                         var id = row.GetGuid(0);
-                        string path = null;
+                        string? path = null;
 
                         if (!row.IsDBNull(1))
                         {
@@ -5353,7 +5353,7 @@ where AncestorIdText not null and ItemValues.Value not null and ItemValues.Type 
                 ("Type=" + itemValueTypes[0].ToString(CultureInfo.InvariantCulture)) :
                 ("Type in (" + string.Join(",", itemValueTypes.Select(i => i.ToString(CultureInfo.InvariantCulture))) + ")");
 
-            InternalItemsQuery typeSubQuery = null;
+            InternalItemsQuery? typeSubQuery = null;
 
             Dictionary<string, string> itemCountColumns = null;
 

@@ -772,7 +772,7 @@ namespace Emby.Server.Implementations.LiveTv
             return new Tuple<LiveTvProgram, bool, bool>(item, isNew, isUpdated);
         }
 
-        public async Task<BaseItemDto> GetProgram(string id, CancellationToken cancellationToken, User user = null)
+        public async Task<BaseItemDto> GetProgram(string id, CancellationToken cancellationToken, User? user = null)
         {
             var program = _libraryManager.GetItemById(id);
 
@@ -1428,7 +1428,7 @@ namespace Emby.Server.Implementations.LiveTv
             return result;
         }
 
-        public Task AddInfoToProgramDto(IReadOnlyCollection<(BaseItem, BaseItemDto)> tuples, IReadOnlyList<ItemFields> fields, User user = null)
+        public Task AddInfoToProgramDto(IReadOnlyCollection<(BaseItem, BaseItemDto)> tuples, IReadOnlyList<ItemFields> fields, User? user = null)
         {
             var programTuples = new List<Tuple<BaseItemDto, string, string>>();
             var hasChannelImage = fields.Contains(ItemFields.ChannelImage);
@@ -1478,7 +1478,7 @@ namespace Emby.Server.Implementations.LiveTv
             return EmbyTV.EmbyTV.Current.GetActiveRecordingInfo(path);
         }
 
-        public void AddInfoToRecordingDto(BaseItem item, BaseItemDto dto, ActiveRecordingInfo activeRecordingInfo, User user = null)
+        public void AddInfoToRecordingDto(BaseItem item, BaseItemDto dto, ActiveRecordingInfo activeRecordingInfo, User? user = null)
         {
             var service = EmbyTV.EmbyTV.Current;
 
@@ -1848,7 +1848,7 @@ namespace Emby.Server.Implementations.LiveTv
             var returnArray = timers
                 .Select(i =>
                 {
-                    string channelName = null;
+                    string? channelName = null;
 
                     if (!string.IsNullOrEmpty(i.Item1.ChannelId))
                     {
@@ -1935,10 +1935,10 @@ namespace Emby.Server.Implementations.LiveTv
             }
         }
 
-        private async Task<Tuple<SeriesTimerInfo, ILiveTvService>> GetNewTimerDefaultsInternal(CancellationToken cancellationToken, LiveTvProgram program = null)
+        private async Task<Tuple<SeriesTimerInfo, ILiveTvService>> GetNewTimerDefaultsInternal(CancellationToken cancellationToken, LiveTvProgram? program = null)
         {
-            ILiveTvService service = null;
-            ProgramInfo programInfo = null;
+            ILiveTvService? service = null;
+            ProgramInfo? programInfo = null;
 
             if (program != null)
             {
@@ -2043,7 +2043,7 @@ namespace Emby.Server.Implementations.LiveTv
             var defaultValues = await service.GetNewTimerDefaultsAsync(cancellationToken).ConfigureAwait(false);
             info.Priority = defaultValues.Priority;
 
-            string newTimerId = null;
+            string? newTimerId = null;
             if (service is ISupportsNewTimerIds supportsNewTimerIds)
             {
                 newTimerId = await supportsNewTimerIds.CreateTimer(info, cancellationToken).ConfigureAwait(false);
@@ -2076,7 +2076,7 @@ namespace Emby.Server.Implementations.LiveTv
             var defaultValues = await service.GetNewTimerDefaultsAsync(cancellationToken).ConfigureAwait(false);
             info.Priority = defaultValues.Priority;
 
-            string newTimerId = null;
+            string? newTimerId = null;
             if (service is ISupportsNewTimerIds supportsNewTimerIds)
             {
                 newTimerId = await supportsNewTimerIds.CreateSeriesTimer(info, cancellationToken).ConfigureAwait(false);

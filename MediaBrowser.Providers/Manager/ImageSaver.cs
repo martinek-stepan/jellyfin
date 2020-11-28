@@ -159,7 +159,7 @@ namespace MediaBrowser.Providers.Manager
                         source.Position = 0;
                     }
 
-                    string retryPath = null;
+                    string? retryPath = null;
                     if (paths.Length == retryPaths.Length)
                     {
                         retryPath = retryPaths[i];
@@ -451,7 +451,7 @@ namespace MediaBrowser.Providers.Manager
 
             extension = extension.ToLowerInvariant();
 
-            string path = null;
+            string? path = null;
 
             if (saveLocally)
             {

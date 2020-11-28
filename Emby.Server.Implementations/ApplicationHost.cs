@@ -1304,7 +1304,7 @@ namespace Emby.Server.Implementations
         }
 
         /// <inheritdoc/>
-        public string GetLocalApiUrl(string host, string scheme = null, int? port = null)
+        public string GetLocalApiUrl(string host, string? scheme = null, int? port = null)
         {
             // NOTE: If no BaseUrl is set then UriBuilder appends a trailing slash, but if there is no BaseUrl it does
             // not. For consistency, always trim the trailing slash.

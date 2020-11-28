@@ -31,7 +31,7 @@ namespace Emby.Server.Implementations.Library
 
         public QueryResult<SearchHintInfo> GetSearchHints(SearchQuery query)
         {
-            User user = null;
+            User? user = null;
             if (query.UserId != Guid.Empty)
             {
                 user = _userManager.GetUserById(query.UserId);

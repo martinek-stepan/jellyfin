@@ -285,7 +285,7 @@ namespace Emby.Server.Implementations.Library.Resolvers.Movies
                 return null;
             }
 
-            Video item = null;
+            Video? item = null;
 
             if (string.Equals(collectionType, CollectionType.MusicVideos, StringComparison.OrdinalIgnoreCase))
             {

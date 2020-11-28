@@ -52,8 +52,8 @@ namespace Emby.Server.Implementations.Library.Resolvers
 
             if (args.IsDirectory)
             {
-                TVideoType video = null;
-                VideoFileInfo videoInfo = null;
+                TVideoType? video = null;
+                VideoFileInfo? videoInfo = null;
 
                 // Loop through each child file/folder and see if we find a video
                 foreach (var child in args.FileSystemChildren)

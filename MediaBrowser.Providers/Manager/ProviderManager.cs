@@ -781,7 +781,7 @@ namespace MediaBrowser.Providers.Manager
             where TItemType : BaseItem, new()
             where TLookupType : ItemLookupInfo
         {
-            BaseItem referenceItem = null;
+            BaseItem? referenceItem = null;
 
             if (!searchInfo.ItemId.Equals(Guid.Empty))
             {
@@ -953,20 +953,18 @@ namespace MediaBrowser.Providers.Manager
                         i.UrlFormatString,
                         value)
                 };
-            }).Where(i => i != null).Concat(item.GetRelatedUrls());
+            }).OfType<ExternalUrl>().Concat(item.GetRelatedUrls());
         }
 
         /// <inheritdoc/>
         public IEnumerable<ExternalIdInfo> GetExternalIdInfos(IHasProviderIds item)
         {
             return GetExternalIds(item)
-                .Select(i => new ExternalIdInfo
-                {
-                    Name = i.ProviderName,
-                    Key = i.Key,
-                    Type = i.Type,
-                    UrlFormatString = i.UrlFormatString
-                });
+                .Select(i => new ExternalIdInfo(
+                    name: i.ProviderName,
+                    key: i.Key,
+                    type: i.Type,
+                    urlFormatString: i.UrlFormatString));
         }
 
         /// <inheritdoc/>

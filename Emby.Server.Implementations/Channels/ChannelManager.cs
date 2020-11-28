@@ -942,7 +942,7 @@ namespace Emby.Server.Implementations.Channels
         {
             var id = _libraryManager.GetNewItemId(GetIdToHash(idString, channelName), typeof(T));
 
-            T item = null;
+            T? item = null;
 
             try
             {

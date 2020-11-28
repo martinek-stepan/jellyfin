@@ -210,9 +210,9 @@ namespace Emby.Server.Implementations.Updates
         /// <inheritdoc />
         public IEnumerable<PackageInfo> FilterPackages(
             IEnumerable<PackageInfo> availablePackages,
-            string name = null,
+            string? name = null,
             Guid guid = default,
-            Version specificVersion = null)
+            Version? specificVersion = null)
         {
             if (name != null)
             {
@@ -235,10 +235,10 @@ namespace Emby.Server.Implementations.Updates
         /// <inheritdoc />
         public IEnumerable<InstallationInfo> GetCompatibleVersions(
             IEnumerable<PackageInfo> availablePackages,
-            string name = null,
+            string? name = null,
             Guid guid = default,
-            Version minVersion = null,
-            Version specificVersion = null)
+            Version? minVersion = null,
+            Version? specificVersion = null)
         {
             var package = FilterPackages(availablePackages, name, guid, specificVersion).FirstOrDefault();
 

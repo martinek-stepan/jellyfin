@@ -119,7 +119,7 @@ namespace MediaBrowser.Providers.Plugins.Omdb
                 return false;
             }
 
-            RootObject result = null;
+            RootObject? result = null;
 
             if (!string.IsNullOrWhiteSpace(episodeImdbId))
             {

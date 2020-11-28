@@ -1,4 +1,3 @@
-#nullable disable
 #pragma warning disable CS1591
 
 using System;
@@ -44,7 +43,7 @@ namespace MediaBrowser.Model.Dlna
             StreamOptions[name] = value;
         }
 
-        public string GetOption(string qualifier, string name)
+        public string? GetOption(string qualifier, string name)
         {
             var value = GetOption(qualifier + "-" + name);
 
@@ -56,7 +55,7 @@ namespace MediaBrowser.Model.Dlna
             return value;
         }
 
-        public string GetOption(string name)
+        public string? GetOption(string name)
         {
             if (StreamOptions.TryGetValue(name, out var value))
             {
@@ -146,7 +145,7 @@ namespace MediaBrowser.Model.Dlna
 
         public Dictionary<string, string> StreamOptions { get; private set; }
 
-        public string MediaSourceId => MediaSource?.Id;
+        public string? MediaSourceId => MediaSource?.Id;
 
         public bool IsDirectStream =>
             PlayMethod == PlayMethod.DirectStream ||
@@ -276,7 +275,7 @@ namespace MediaBrowser.Model.Dlna
             list.Add(new NameValuePair("PlaySessionId", item.PlaySessionId ?? string.Empty));
             list.Add(new NameValuePair("api_key", accessToken ?? string.Empty));
 
-            string liveStreamId = item.MediaSource?.LiveStreamId;
+            string? liveStreamId = item.MediaSource?.LiveStreamId;
             list.Add(new NameValuePair("LiveStreamId", liveStreamId ?? string.Empty));
 
             list.Add(new NameValuePair("SubtitleMethod", item.SubtitleStreamIndex.HasValue && item.SubtitleDeliveryMethod != SubtitleDeliveryMethod.External ? item.SubtitleDeliveryMethod.ToString() : string.Empty));
@@ -318,7 +317,7 @@ namespace MediaBrowser.Model.Dlna
                 list.Add(new NameValuePair("RequireAvc", item.RequireAvc.ToString(CultureInfo.InvariantCulture).ToLowerInvariant()));
             }
 
-            list.Add(new NameValuePair("Tag", item.MediaSource.ETag ?? string.Empty));
+            list.Add(new NameValuePair("Tag", item.MediaSource?.ETag ?? string.Empty));
 
             string subtitleCodecs = item.SubtitleCodecs.Length == 0 ?
                string.Empty :
@@ -489,7 +488,7 @@ namespace MediaBrowser.Model.Dlna
         /// <summary>
         /// Returns the audio stream that will be used.
         /// </summary>
-        public MediaStream TargetAudioStream
+        public MediaStream? TargetAudioStream
         {
             get
             {
@@ -505,7 +504,7 @@ namespace MediaBrowser.Model.Dlna
         /// <summary>
         /// Returns the video stream that will be used.
         /// </summary>
-        public MediaStream TargetVideoStream
+        public MediaStream? TargetVideoStream
         {
             get
             {
@@ -720,7 +719,7 @@ namespace MediaBrowser.Model.Dlna
         /// <summary>
         /// Predicts the audio sample rate that will be in the output stream.
         /// </summary>
-        public string TargetVideoProfile
+        public string? TargetVideoProfile
         {
             get
             {
@@ -744,7 +743,7 @@ namespace MediaBrowser.Model.Dlna
         /// Gets the target video codec tag.
         /// </summary>
         /// <value>The target video codec tag.</value>
-        public string TargetVideoCodecTag
+        public string? TargetVideoCodecTag
         {
             get
             {
@@ -819,7 +818,7 @@ namespace MediaBrowser.Model.Dlna
             {
                 var stream = TargetAudioStream;
 
-                string inputCodec = stream?.Codec;
+                string? inputCodec = stream?.Codec;
 
                 if (IsDirectStream)
                 {
@@ -844,7 +843,7 @@ namespace MediaBrowser.Model.Dlna
             {
                 var stream = TargetVideoStream;
 
-                string inputCodec = stream?.Codec;
+                string? inputCodec = stream?.Codec;
 
                 if (IsDirectStream)
                 {

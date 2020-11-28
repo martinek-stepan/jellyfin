@@ -110,7 +110,7 @@ namespace Emby.Server.Implementations.Library.Resolvers.Audio
                     return null;
                 }
 
-                MediaBrowser.Controller.Entities.Audio.Audio item = null;
+                MediaBrowser.Controller.Entities.Audio.Audio? item = null;
 
                 var isMusicCollectionType = string.Equals(collectionType, CollectionType.Music, StringComparison.OrdinalIgnoreCase);
 

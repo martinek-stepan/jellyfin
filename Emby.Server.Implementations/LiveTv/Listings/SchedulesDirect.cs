@@ -249,7 +249,7 @@ namespace Emby.Server.Implementations.LiveTv.Listings
                 }
             }
 
-            string episodeTitle = null;
+            string? episodeTitle = null;
             if (details.episodeTitle150 != null)
             {
                 episodeTitle = details.episodeTitle150;

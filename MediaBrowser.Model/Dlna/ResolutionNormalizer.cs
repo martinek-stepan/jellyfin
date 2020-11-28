@@ -63,7 +63,7 @@ namespace MediaBrowser.Model.Dlna
 
         private static ResolutionConfiguration GetResolutionConfiguration(int outputBitrate)
         {
-            ResolutionConfiguration previousOption = null;
+            ResolutionConfiguration? previousOption = null;
 
             foreach (var config in Configurations)
             {

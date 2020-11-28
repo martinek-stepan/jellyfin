@@ -176,7 +176,7 @@ namespace Emby.Server.Implementations.IO
         /// <returns>BaseItem.</returns>
         private BaseItem GetAffectedBaseItem(string path)
         {
-            BaseItem item = null;
+            BaseItem? item = null;
 
             while (item == null && !string.IsNullOrEmpty(path))
             {

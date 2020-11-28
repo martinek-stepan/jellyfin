@@ -363,7 +363,7 @@ namespace Emby.Server.Implementations.LiveTv.TunerHosts.HdHomerun
             int? width = null;
             int? height = null;
             bool isInterlaced = true;
-            string videoCodec = null;
+            string? videoCodec = null;
 
             int? videoBitrate = null;
 
@@ -455,7 +455,7 @@ namespace Emby.Server.Implementations.LiveTv.TunerHosts.HdHomerun
                 videoCodec = "mpeg2video";
             }
 
-            string nal = null;
+            string? nal = null;
             if (string.Equals(videoCodec, "h264", StringComparison.OrdinalIgnoreCase))
             {
                 nal = "0";

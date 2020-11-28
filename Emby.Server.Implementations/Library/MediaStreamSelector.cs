@@ -44,7 +44,7 @@ namespace Emby.Server.Implementations.Library
             streams = GetSortedStreams(streams, MediaStreamType.Subtitle, preferredLanguages)
                 .ToList();
 
-            MediaStream stream = null;
+            MediaStream? stream = null;
 
             if (mode == SubtitlePlaybackMode.None)
             {
